@@ -1,0 +1,5 @@
+[console_scripts]
+lab2_test_node = turtlebot_nodes.lab2_test:main
+map_pub = turtlebot_nodes.occupancy_map:main
+pub_pose = turtlebot_nodes.pub_pose_filtered:main
+
