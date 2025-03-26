@@ -1,0 +1,45 @@
+[0.594s] Invoking command in '/home/alex/ros_testing/ros_ex_ws/src/turtlebot_nodes': PYTHONPATH=/home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/turtlebot_nodes build --build-base /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build install --record /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/install.log --single-version-externally-managed install_data
+[0.803s] running egg_info
+[0.804s] creating ../../build/turtlebot_nodes/turtlebot_nodes.egg-info
+[0.804s] writing ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/PKG-INFO
+[0.804s] writing dependency_links to ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/dependency_links.txt
+[0.804s] writing entry points to ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/entry_points.txt
+[0.804s] writing requirements to ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/requires.txt
+[0.804s] writing top-level names to ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/top_level.txt
+[0.805s] writing manifest file '../../build/turtlebot_nodes/turtlebot_nodes.egg-info/SOURCES.txt'
+[0.806s] reading manifest file '../../build/turtlebot_nodes/turtlebot_nodes.egg-info/SOURCES.txt'
+[0.806s] writing manifest file '../../build/turtlebot_nodes/turtlebot_nodes.egg-info/SOURCES.txt'
+[0.806s] running build
+[0.806s] running build_py
+[0.807s] creating /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build
+[0.807s] creating /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib
+[0.807s] creating /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes
+[0.807s] copying turtlebot_nodes/pub_pose_filtered.py -> /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes
+[0.807s] copying turtlebot_nodes/__init__.py -> /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes
+[0.807s] copying turtlebot_nodes/lab2_test.py -> /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes
+[0.807s] copying turtlebot_nodes/occupancy_map.py -> /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes
+[0.807s] running install
+[0.808s] running install_lib
+[0.808s] creating /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes
+[0.808s] copying /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes/pub_pose_filtered.py -> /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes
+[0.808s] copying /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes/__init__.py -> /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes
+[0.808s] copying /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes/lab2_test.py -> /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes
+[0.809s] copying /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes/occupancy_map.py -> /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes
+[0.809s] byte-compiling /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/pub_pose_filtered.py to pub_pose_filtered.cpython-310.pyc
+[0.809s] byte-compiling /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/__init__.py to __init__.cpython-310.pyc
+[0.810s] byte-compiling /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/lab2_test.py to lab2_test.cpython-310.pyc
+[0.810s] byte-compiling /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/occupancy_map.py to occupancy_map.cpython-310.pyc
+[0.811s] running install_data
+[0.811s] creating /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/share/ament_index
+[0.811s] creating /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/share/ament_index/resource_index
+[0.811s] creating /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/share/ament_index/resource_index/packages
+[0.811s] copying resource/turtlebot_nodes -> /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/share/ament_index/resource_index/packages
+[0.811s] copying package.xml -> /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/share/turtlebot_nodes
+[0.811s] running install_egg_info
+[0.813s] Copying ../../build/turtlebot_nodes/turtlebot_nodes.egg-info to /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes-0.0.0-py3.10.egg-info
+[0.814s] running install_scripts
+[0.827s] Installing lab2_test_node script to /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes
+[0.827s] Installing map_pub script to /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes
+[0.827s] Installing pub_pose script to /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes
+[0.828s] writing list of installed files to '/home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/install.log'
+[0.849s] Invoked command in '/home/alex/ros_testing/ros_ex_ws/src/turtlebot_nodes' returned '0': PYTHONPATH=/home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/turtlebot_nodes build --build-base /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build install --record /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/install.log --single-version-externally-managed install_data

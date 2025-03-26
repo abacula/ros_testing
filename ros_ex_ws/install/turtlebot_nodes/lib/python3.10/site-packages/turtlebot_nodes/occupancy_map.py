@@ -62,7 +62,7 @@ class MapPubNode(Node):
         robot_y = round((self.y-origin_y)/resolution)
         self.get_logger().info(str(robot_x) + ", " + str(robot_y) + ", " + str(self.ang*180/self.PI)) 
 
-        robot_ang = (round(self.ang - origin_ang)*180/self.PI,4)
+        robot_ang = round((self.ang - origin_ang)*180/self.PI,4)
 
         occupancy_grid = msg.data
 

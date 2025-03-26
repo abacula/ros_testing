@@ -1,0 +1,43 @@
+running egg_info
+creating ../../build/turtlebot_nodes/turtlebot_nodes.egg-info
+writing ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/PKG-INFO
+writing dependency_links to ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/dependency_links.txt
+writing entry points to ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/entry_points.txt
+writing requirements to ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/requires.txt
+writing top-level names to ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/top_level.txt
+writing manifest file '../../build/turtlebot_nodes/turtlebot_nodes.egg-info/SOURCES.txt'
+reading manifest file '../../build/turtlebot_nodes/turtlebot_nodes.egg-info/SOURCES.txt'
+writing manifest file '../../build/turtlebot_nodes/turtlebot_nodes.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build
+creating /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib
+creating /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes
+copying turtlebot_nodes/pub_pose_filtered.py -> /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes
+copying turtlebot_nodes/__init__.py -> /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes
+copying turtlebot_nodes/lab2_test.py -> /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes
+copying turtlebot_nodes/occupancy_map.py -> /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes
+running install
+running install_lib
+creating /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes
+copying /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes/pub_pose_filtered.py -> /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes
+copying /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes/__init__.py -> /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes
+copying /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes/lab2_test.py -> /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes
+copying /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes/occupancy_map.py -> /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes
+byte-compiling /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/pub_pose_filtered.py to pub_pose_filtered.cpython-310.pyc
+byte-compiling /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/lab2_test.py to lab2_test.cpython-310.pyc
+byte-compiling /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/occupancy_map.py to occupancy_map.cpython-310.pyc
+running install_data
+creating /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/share/ament_index
+creating /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/share/ament_index/resource_index
+creating /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/share/ament_index/resource_index/packages
+copying resource/turtlebot_nodes -> /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/share/ament_index/resource_index/packages
+copying package.xml -> /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/share/turtlebot_nodes
+running install_egg_info
+Copying ../../build/turtlebot_nodes/turtlebot_nodes.egg-info to /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes-0.0.0-py3.10.egg-info
+running install_scripts
+Installing lab2_test_node script to /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes
+Installing map_pub script to /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes
+Installing pub_pose script to /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes
+writing list of installed files to '/home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/install.log'
