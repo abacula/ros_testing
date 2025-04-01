@@ -36,7 +36,7 @@ class MapPubNode(Node):
 
      
 
-    # Callback for velocity sub
+    # Callback for pos sub
     def callback_pos(self, msg):
         self.x = msg.pose.pose.position.x
         self.y = msg.pose.pose.position.y

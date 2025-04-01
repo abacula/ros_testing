@@ -22,7 +22,9 @@ setup(
         'console_scripts': [
         'lab2_test_node = turtlebot_nodes.lab2_test:main',
         'pub_pose = turtlebot_nodes.pub_pose_filtered:main',
-        'map_pub = turtlebot_nodes.occupancy_map:main',
+        'get_map = turtlebot_nodes.occupancy_map:main',
+        'map_pub = turtlebot_nodes.map_pub:main',
+        'go_to_goal = turtlebot_nodes.go_to_goal:main',
         ],
     },
 )

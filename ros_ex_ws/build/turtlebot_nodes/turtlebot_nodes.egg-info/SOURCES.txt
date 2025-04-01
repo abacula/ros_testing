@@ -13,6 +13,8 @@ test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py
 turtlebot_nodes/__init__.py
+turtlebot_nodes/go_to_goal.py
 turtlebot_nodes/lab2_test.py
+turtlebot_nodes/map_pub.py
 turtlebot_nodes/occupancy_map.py
 turtlebot_nodes/pub_pose_filtered.py

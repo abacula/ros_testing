@@ -1,11 +1,15 @@
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/pub_pose_filtered.py
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/__init__.py
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/lab2_test.py
+/home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/go_to_goal.py
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/occupancy_map.py
+/home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/map_pub.py
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/__pycache__/pub_pose_filtered.cpython-310.pyc
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/__pycache__/__init__.cpython-310.pyc
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/__pycache__/lab2_test.cpython-310.pyc
+/home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/__pycache__/go_to_goal.cpython-310.pyc
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/__pycache__/occupancy_map.cpython-310.pyc
+/home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/__pycache__/map_pub.cpython-310.pyc
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/share/ament_index/resource_index/packages/turtlebot_nodes
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/share/turtlebot_nodes/package.xml
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes-0.0.0-py3.10.egg-info/entry_points.txt
@@ -15,6 +19,8 @@
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes-0.0.0-py3.10.egg-info/requires.txt
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes-0.0.0-py3.10.egg-info/PKG-INFO
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes-0.0.0-py3.10.egg-info/zip-safe
+/home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes/get_map
+/home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes/go_to_goal
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes/lab2_test_node
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes/map_pub
 /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes/pub_pose

@@ -1,0 +1,6 @@
+{
+  "package_name": "custom_interfaces",
+  "non_idl_tuples": [
+    "/home/alex/ros_testing/ros_ex_ws/src/custom_interfaces:action/RobotGoal.action"
+  ]
+}

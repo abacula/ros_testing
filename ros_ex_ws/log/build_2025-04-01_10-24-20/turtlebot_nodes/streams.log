@@ -1,0 +1,30 @@
+[0.485s] Invoking command in '/home/alex/ros_testing/ros_ex_ws/src/turtlebot_nodes': AMENT_PREFIX_PATH=/home/alex/ros_testing/ros_ex_ws/install/custom_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alex/ros_testing/ros_ex_ws/install/custom_interfaces LD_LIBRARY_PATH=/home/alex/ros_testing/ros_ex_ws/install/custom_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages:/home/alex/ros_testing/ros_ex_ws/install/custom_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/turtlebot_nodes build --build-base /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build install --record /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/install.log --single-version-externally-managed install_data
+[0.684s] running egg_info
+[0.684s] writing ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/PKG-INFO
+[0.684s] writing dependency_links to ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/dependency_links.txt
+[0.685s] writing entry points to ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/entry_points.txt
+[0.685s] writing requirements to ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/requires.txt
+[0.685s] writing top-level names to ../../build/turtlebot_nodes/turtlebot_nodes.egg-info/top_level.txt
+[0.686s] reading manifest file '../../build/turtlebot_nodes/turtlebot_nodes.egg-info/SOURCES.txt'
+[0.687s] writing manifest file '../../build/turtlebot_nodes/turtlebot_nodes.egg-info/SOURCES.txt'
+[0.688s] running build
+[0.688s] running build_py
+[0.688s] copying turtlebot_nodes/go_to_goal.py -> /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes
+[0.688s] copying turtlebot_nodes/occupancy_map.py -> /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes
+[0.688s] running install
+[0.689s] running install_lib
+[0.689s] copying /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes/go_to_goal.py -> /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes
+[0.690s] copying /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build/lib/turtlebot_nodes/occupancy_map.py -> /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes
+[0.690s] byte-compiling /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/go_to_goal.py to go_to_goal.cpython-310.pyc
+[0.691s] byte-compiling /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes/occupancy_map.py to occupancy_map.cpython-310.pyc
+[0.692s] running install_data
+[0.693s] running install_egg_info
+[0.694s] removing '/home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes-0.0.0-py3.10.egg-info' (and everything under it)
+[0.694s] Copying ../../build/turtlebot_nodes/turtlebot_nodes.egg-info to /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages/turtlebot_nodes-0.0.0-py3.10.egg-info
+[0.695s] running install_scripts
+[0.710s] Installing get_map script to /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes
+[0.711s] Installing lab2_test_node script to /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes
+[0.711s] Installing map_pub script to /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes
+[0.711s] Installing pub_pose script to /home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/turtlebot_nodes
+[0.713s] writing list of installed files to '/home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/install.log'
+[0.729s] Invoked command in '/home/alex/ros_testing/ros_ex_ws/src/turtlebot_nodes' returned '0': AMENT_PREFIX_PATH=/home/alex/ros_testing/ros_ex_ws/install/custom_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alex/ros_testing/ros_ex_ws/install/custom_interfaces LD_LIBRARY_PATH=/home/alex/ros_testing/ros_ex_ws/install/custom_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alex/ros_testing/ros_ex_ws/install/turtlebot_nodes/lib/python3.10/site-packages:/home/alex/ros_testing/ros_ex_ws/install/custom_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/turtlebot_nodes build --build-base /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/build install --record /home/alex/ros_testing/ros_ex_ws/build/turtlebot_nodes/install.log --single-version-externally-managed install_data

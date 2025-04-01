@@ -1,0 +1,34 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from custom_interfaces/action/RobotGoal.action
+// generated code does not contain a copyright notice
+
+
+module custom_interfaces {
+  module action {
+    @verbatim (language="comment", text=
+      "Goal fields")
+    struct RobotGoal_Goal {
+      double goal_x;
+
+      double goal_y;
+
+      double goal_theta;
+    };
+    @verbatim (language="comment", text=
+      "Result fields")
+    struct RobotGoal_Result {
+      boolean success;
+    };
+    @verbatim (language="comment", text=
+      "Feedback fields")
+    struct RobotGoal_Feedback {
+      double distance;
+
+      double current_x;
+
+      double current_y;
+
+      double current_theta;
+    };
+  };
+};
