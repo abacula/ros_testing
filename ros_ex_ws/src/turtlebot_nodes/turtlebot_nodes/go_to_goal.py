@@ -3,10 +3,13 @@ from geometry_msgs.msg import Twist, PoseWithCovarianceStamped
 from nav_msgs.msg import OccupancyGrid
 from std_msgs.msg import String
 from sensor_msgs.msg import LaserScan
-from custom_interfaces import RobotGoal
+from custom_interfaces.action import RobotGoal
 
 from rclpy.action import ActionServer, GoalResponse
 from rclpy.action.server import ServerGoalHandle
+from rclpy.executors import MultiThreadedExecutor
+from rclpy.executors import ExternalShutdownException
+from rclpy.callback_groups import ReentrantCallbackGroup
 
 import rclpy
 from rclpy.node import Node
@@ -27,6 +30,8 @@ class MapPubNode(Node):
         self.ang = 0
 
         self.robot_radius = 0.3
+
+        self.obstacle_space = []
 
         self.resoltuion = 0.05 # Default 5cm
         self.width = 0
@@ -60,7 +65,7 @@ class MapPubNode(Node):
         pos_filt += " x: " + str(self.x) + "\n"
         pos_filt += " y: " + str(self.y) + "\n"
         pos_filt += " angle: " + str(self.ang) + "\n"
-        # self.get_logger().info(pos_filt)
+        self.get_logger().info(pos_filt)
 
     # index in map to real x y
     def index_to_real(self,col,row):
@@ -152,9 +157,12 @@ class MapPubNode(Node):
         goal_y = goal_handle.request.goal_y
         result = RobotGoal.Result()
         feedback = RobotGoal.Feedback()
-
+        feedback.distance = 0.0
+        i = 0
+        while i < 500:
+            self.get_logger().info(str(i) + " " + str(self.x))
+            i+=1
         
-
         # Publish Feedback
         goal_handle.publish_feedback(feedback)
 
@@ -165,10 +173,19 @@ class MapPubNode(Node):
         return result
 
 
-def main(args=None):
-    rclpy.init(args=args)
-    node = MapPubNode()
-    rclpy.spin(node)
+def main(args=None): 
+
+    try:
+        rclpy.init(args=None)
+        node = MapPubNode()
+
+        # Use a MultiThreadedExecutor to enable processing goals concurrently
+        executor = MultiThreadedExecutor()
+
+        rclpy.spin(node, executor=executor)
+    except (KeyboardInterrupt, ExternalShutdownException):
+        pass
+   
     node.destroy_node()
     rclpy.shutdown()
 
