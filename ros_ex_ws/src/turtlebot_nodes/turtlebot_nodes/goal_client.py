@@ -12,7 +12,7 @@ class GoToGoalClient(Node):
 
         super().__init__('go_to_goal_client')
 
-        self.go_to_goal_client = ActionClient(self, RobotGoal, "robot_goal")
+        self.go_to_goal_client = ActionClient(self, RobotGoal, "go_to_goal")
 
         while not self.go_to_goal_client.wait_for_server(1.0):
             self.get_logger().info("Waiting for server")
@@ -43,7 +43,7 @@ class GoToGoalClient(Node):
         current_x = feedback_msg.feedback.current_x
         current_y = feedback_msg.feedback.current_y
         current_theta = feedback_msg.feedback.current_theta
-        distance_from_goal = feedback_msg.feedback.distance_from_goal
+        distance_from_goal = feedback_msg.feedback.distance
         self.get_logger().info(f"current_x: {current_x} \n current_y: {current_y} \n current_theta: {current_theta} \n distance_from_goal: {distance_from_goal} \n")
 
 
@@ -54,7 +54,10 @@ class GoToGoalClient(Node):
 
         if status == GoalStatus.STATUS_SUCCEEDED:
             success = result.success
-            self.get_logger().info("Success!")
+            if success:
+                self.get_logger().info("Success!")
+            else:
+                self.get_logger().info("obstacle")
         else:
             self.get_logger().info("Failed in goal result callback")
 

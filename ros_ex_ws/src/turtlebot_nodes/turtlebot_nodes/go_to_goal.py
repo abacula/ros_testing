@@ -55,6 +55,7 @@ class MapPubNode(Node):
         self.scan_sub = self.create_subscription(LaserScan, '/robot1/scan', self.callback_scan, 10)
         self.scan_sub
 
+        self.velocity_pub = self.create_publisher(Twist, '/robot1/cmd_vel', 10)
 
     # Callback for pos sub
     def callback_pos(self, msg):
@@ -62,8 +63,9 @@ class MapPubNode(Node):
         self.y = msg.pose.pose.position.y
         quaternion = msg.pose.pose.orientation
 
-        (_,_,self.ang) = euler_from_quaternion(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
-        
+        (_,_,self.ang) = euler_from_quaternion([quaternion.x, quaternion.y, quaternion.z, quaternion.w])
+       
+
     # index in map to real x y
     def index_to_real(self,col,row):
         real_x = round((col*self.resolution) + self.origin_x,2)
@@ -83,7 +85,7 @@ class MapPubNode(Node):
 
         robot_x = round((self.x-self.origin_x)/self.resolution)
         robot_y = round((self.y-self.origin_y)/self.resolution)
-        self.get_logger().info(str(robot_x) + ", " + str(robot_y) + ", " + str(self.ang*180/self.PI)) 
+        # self.get_logger().info(str(robot_x) + ", " + str(robot_y) + ", " + str(self.ang*180/self.PI)) 
 
         robot_ang = round((self.ang - self.origin_ang)*180/self.PI,4)
 
@@ -162,8 +164,8 @@ class MapPubNode(Node):
         slow_threshold = 1.5
 
         # Base speeds
-        rotation_speed = 0.3
-        forward_speed = 0.5
+        rotation_speed = 0.25
+        forward_speed = 0.4
 
         # Get initial distance
         distance_to_goal = math.dist([goal_x,goal_y],[self.x,self.y])
@@ -220,7 +222,7 @@ class MapPubNode(Node):
             feedback.current_x = float(round(self.x,2))
             feedback.current_y = float(round(self.y,2))
             feedback.current_theta = float(round(self.ang,2))
-            feedback.distance_from_goal = float(round(distance_to_goal,2))
+            feedback.distance = float(round(distance_to_goal,2))
             goal_handle.publish_feedback(feedback)
 
         # Calc dif between current angle and goal angle
@@ -238,7 +240,7 @@ class MapPubNode(Node):
             feedback.current_x = float(round(self.x,2))
             feedback.current_y = float(round(self.y,2))
             feedback.current_theta = float(round(self.ang,2))
-            feedback.distance_from_goal = float(round(distance_to_goal,2))
+            feedback.distance= float(round(distance_to_goal,2))
             goal_handle.publish_feedback(feedback)
 
         # Stop moving
