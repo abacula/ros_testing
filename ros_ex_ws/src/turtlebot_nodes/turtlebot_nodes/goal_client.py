@@ -6,25 +6,25 @@ from rclpy.action.client import ClientGoalHandle, GoalStatus
 
 from custom_interfaces.action import RobotGoal
 
-class GoalClientNode(Node):
+class GoToGoalClient(Node):
 
     def __init__(self):
 
-        super().__init__('goal_client')
+        super().__init__('go_to_goal_client')
 
-        self.goal_client = ActionClient(self, RobotGoal, "go_to_goal")
+        self.go_to_goal_client = ActionClient(self, RobotGoal, "robot_goal")
 
-        while not self.goal_client.wait_for_server(1.0):
+        while not self.go_to_goal_client.wait_for_server(1.0):
             self.get_logger().info("Waiting for server")
 
 
     # Send Goal
-    def send_goal(self, x, y, theta):
+    def send_goal(self, goal_x, goal_y, goal_theta):
         goal = RobotGoal.Goal()
-        goal.goal_x = x
-        goal.goal_y = y
-        goal.goal_theta = theta
-        self.goal_client.send_goal_async(goal, feedback_callback=self.goal_feedback_callback).add_done_callback(self.goal_response_callback)
+        goal.goal_x = goal_x
+        goal.goal_y = goal_y
+        goal.goal_theta = goal_theta
+        self.go_to_goal_client.send_goal_async(goal, feedback_callback=self.goal_feedback_callback).add_done_callback(self.goal_response_callback)
 
 
     # Process Goal Accept/Reject
@@ -40,8 +40,11 @@ class GoalClientNode(Node):
 
     # Process Goal Feedback
     def goal_feedback_callback(self, feedback_msg):
-        feedback = feedback_msg.feedback.distance
-        self.get_logger().info("Got feedback: " )
+        current_x = feedback_msg.feedback.current_x
+        current_y = feedback_msg.feedback.current_y
+        current_theta = feedback_msg.feedback.current_theta
+        distance_from_goal = feedback_msg.feedback.distance_from_goal
+        self.get_logger().info(f"current_x: {current_x} \n current_y: {current_y} \n current_theta: {current_theta} \n distance_from_goal: {distance_from_goal} \n")
 
 
     # Process Action Result
@@ -49,12 +52,11 @@ class GoalClientNode(Node):
         result = future.result().result
         status = future.result().status
 
-        # if status == GoalStatus.STATUS_SUCCEEDED:
-        #     self.get_logger().info("Success!")
-        #     acrostic = result.success
-        #     self.get_logger().info(acrostic)
-        # else:
-        #     self.get_logger().info("No poem for you")
+        if status == GoalStatus.STATUS_SUCCEEDED:
+            success = result.success
+            self.get_logger().info("Success!")
+        else:
+            self.get_logger().info("Failed in goal result callback")
 
         rclpy.shutdown()
 
@@ -63,10 +65,10 @@ def main(args=None):
     rclpy.init(args=args)
 
     # Create instance of node
-    action_client = GoalClientNode()
+    action_client = GoToGoalClient()
 
     # Send the goal
-    action_client.send_goal(-1.0,-1.0,0.0)
+    action_client.send_goal(float(input("Enter x: ")), float(input("Enter y: ")), float(input("Enter theta: ")))
 
     # Normal spin, yay! (callback handles shutdown)
     rclpy.spin(action_client)
