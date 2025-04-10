@@ -4,6 +4,7 @@ from nav_msgs.msg import OccupancyGrid
 from std_msgs.msg import String
 from sensor_msgs.msg import LaserScan
 from custom_interfaces.action import RobotGoal
+from tf_transformations import euler_from_quaternion
 
 from rclpy.action import ActionServer, GoalResponse
 from rclpy.action.server import ServerGoalHandle
@@ -50,7 +51,6 @@ class MapPubNode(Node):
         self.map_subscriber = self.create_subscription(OccupancyGrid, '/robot1/map', self.callback_map, 10)
         self.map_subscriber
 
-
         # Subscirbe to scan
         self.scan_sub = self.create_subscription(LaserScan, '/robot1/scan', self.callback_scan, 10)
         self.scan_sub
@@ -60,13 +60,10 @@ class MapPubNode(Node):
     def callback_pos(self, msg):
         self.x = msg.pose.pose.position.x
         self.y = msg.pose.pose.position.y
-        self.ang = msg.pose.pose.orientation.z
-        pos_filt = "\n";
-        pos_filt += " x: " + str(self.x) + "\n"
-        pos_filt += " y: " + str(self.y) + "\n"
-        pos_filt += " angle: " + str(self.ang) + "\n"
-        self.get_logger().info(pos_filt)
+        quaternion = msg.pose.pose.orientation
 
+        (_,_,self.ang) = euler_from_quaternion(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
+        
     # index in map to real x y
     def index_to_real(self,col,row):
         real_x = round((col*self.resolution) + self.origin_x,2)
@@ -138,7 +135,7 @@ class MapPubNode(Node):
     # Goal callback
     def goal_callback(self, goal_request):
         goal = [goal_request.goal_x,goal_request.goal_y]
-        min_distance = 1000
+        min_distance = 10000
 
         for obstacle in self.obstacle_space:
             distance = math.dist(goal,obstacle)
@@ -155,21 +152,107 @@ class MapPubNode(Node):
     def execute_callback(self, goal_handle):
         goal_x = goal_handle.request.goal_x
         goal_y = goal_handle.request.goal_y
+        goal_theta = goal_handle.request.goal_theta
         result = RobotGoal.Result()
         feedback = RobotGoal.Feedback()
-        feedback.distance = 0.0
-        i = 0
-        while i < 500:
-            self.get_logger().info(str(i) + " " + str(self.x))
-            i+=1
-        
-        # Publish Feedback
-        goal_handle.publish_feedback(feedback)
 
-        # Save result to result
+        # What is close enough
+        close_enough_distance = 0.25
+        close_enough_angle = 0.2
+        slow_threshold = 1.5
 
+        # Base speeds
+        rotation_speed = 0.3
+        forward_speed = 0.5
+
+        # Get initial distance
+        distance_to_goal = math.dist([goal_x,goal_y],[self.x,self.y])
+
+        # While not close enough
+        while distance_to_goal > close_enough_distance:
+            # New velocity msg
+            vel = Twist()
+
+            # Calc desired angle
+            desired_angle = math.atan2(goal_y - self.y, goal_x - self.x)
+            # Calc abs val difference between current angle and desired
+            angle_dif = abs(self.ang - desired_angle)
+
+            # If not close enough to desired angle
+            if angle_dif > close_enough_angle:
+                # Don't move forward
+                vel.linear.x = 0.0
+                
+                # Rotate left
+                if goal_y > self.y:
+                    vel.angular.z = -rotation_speed
+                # Rotate right
+                else:
+                    vel.angular.z = rotation_speed
+
+            # If obstacle seen, stop
+            elif self.obstacle:
+                self.get_logger().info("Obstacle!")
+                vel.linear.x = 0.0
+                vel.angular.z = 0.0
+                # Set result.success to False
+                result.success = False
+                # Exit while loop
+                goal_handle.succeed()
+                return result
+            
+            else: 
+                vel.angular.z = 0.0
+                # If farther than slow threshold
+                if distance_to_goal > slow_threshold:
+                    # Move at base speed
+                    vel.linear.x = forward_speed
+                else: 
+                    # Move at speed relative to dist from goal
+                    vel.linear.x = forward_speed * (distance_to_goal/slow_threshold)
+            # Publish velocity
+            self.velocity_pub.publish(vel)
+
+            # Calc new distance to goal
+            distance_to_goal = math.dist([goal_x,goal_y],[self.x,self.y])
+
+            # Publish feedback
+            feedback.current_x = float(round(self.x,2))
+            feedback.current_y = float(round(self.y,2))
+            feedback.current_theta = float(round(self.ang,2))
+            feedback.distance_from_goal = float(round(distance_to_goal,2))
+            goal_handle.publish_feedback(feedback)
+
+        # Calc dif between current angle and goal angle
+        goal_angle_dif = abs(self.ang - goal_theta)
+        # While not close enough
+        while goal_angle_dif > close_enough_angle:
+            vel = Twist()
+            vel.linear.x = 0.0
+            # Rotate
+            vel.angular.z = rotation_speed
+            # Publish 
+            self.velocity_pub.publish(vel)
+
+            # Publish feedback
+            feedback.current_x = float(round(self.x,2))
+            feedback.current_y = float(round(self.y,2))
+            feedback.current_theta = float(round(self.ang,2))
+            feedback.distance_from_goal = float(round(distance_to_goal,2))
+            goal_handle.publish_feedback(feedback)
+
+        # Stop moving
+        vel = Twist()
+        vel.linear.x = 0.0
+        vel.angular.z = 0.0
+        # Publish
+        self.velocity_pub.publish(vel)
+
+        # Set result success to true
+        result.success = True
         # Set status to succeed
         goal_handle.succeed()
+        # Return result
         return result
 
 
